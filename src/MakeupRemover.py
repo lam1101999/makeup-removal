@@ -8,7 +8,7 @@ import numpy as np
 
 class MakeupRemover():
     def __init__(self):
-        state_dict_path = os.path.join(pathlib.Path(__file__), "model_weight", "model30")
+        state_dict_path = os.path.join(pathlib.Path(__file__).parent, "model_weight", "model30")
         device = "cuda" if torch.cuda.is_available() else "cpu"
         generator_state_dict = torch.load(state_dict_path, map_location=torch.device(device))
         self.generator = Generator()
