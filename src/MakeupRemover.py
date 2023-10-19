@@ -8,16 +8,16 @@ import numpy as np
 
 class MakeupRemover():
     def __init__(self):
+        state_dict_path = os.path.join(pathlib.Path(__file__), "model_weight", "model30")
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        generator_state_dict = torch.load(state_dict_path, map_location=torch.device(device))
         self.generator = Generator()
-        state_dict_path = os.path.join(pathlib.Path(
-            __file__).parent, "model_weight", "model30")
-        generator_state_dict = torch.load(state_dict_path)
         self.generator.load_state_dict(generator_state_dict["G_XtoY"])
         self.transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         ])
-        self.convert = transforms.ToPILImage()
+
 
     def remove_makeup(self, image):
         image = self.transform(image)
