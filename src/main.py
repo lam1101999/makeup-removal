@@ -2,6 +2,7 @@ import streamlit as st
 from FaceDetector import FaceDetector
 from MakeupRemover import MakeupRemover
 from PIL import Image
+import numpy as np
 import torch
 import pathlib
 import os
@@ -20,10 +21,12 @@ def main():
         faces = face_detector.detect_face(our_image, resized=True, size=96)
         
         for face in faces:
-            remove_makeup = makeup_remover.remove_makeup(face)
-            information = "After remove makeup"
+            remove_makeup = makeup_remover.remove_makeup(face["image"])
+            print(remove_makeup)
+            restored_size = Image.fromarray((remove_makeup*255).astype(np.uint8)).resize((face["width"], face["height"]))
+            information = "After removing makeup"
             st.text(information)
-            st.image(remove_makeup, channels="RGB")
+            st.image(restored_size, channels="RGB")
 
 
 if __name__ == "__main__":
