@@ -7,13 +7,13 @@ from PIL import Image
 
 class GeneratorDataset(Dataset):
     """Load images from folder for generator."""
-
     def __init__(self, list_root_dir, transform=None):
         """
         Args:
             root_dir (string): Directory with all the images.
             transform (callable, optional): Optional transform to be applied
                 on a sample.
+        :return: None
         """
         self.list_root_dir = list_root_dir
         self.filenames = []
@@ -22,6 +22,12 @@ class GeneratorDataset(Dataset):
         self.transform = transform
 
     def __len__(self):
+        """
+        Returns the length of the object.
+
+        :return: The length of the object.
+        :rtype: int
+        """
         return len(self.filenames)
 
     def __getitem__(self, iD_X):
