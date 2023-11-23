@@ -8,9 +8,11 @@ import numpy as np
 
 class MakeupRemover():
     def __init__(self):
-        state_dict_path = os.path.join(pathlib.Path(__file__).parent, "model_weight", "model30")
+        state_dict_path = os.path.join(pathlib.Path(
+            __file__).parent, "model_weight", "model30")
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        generator_state_dict = torch.load(state_dict_path, map_location=torch.device(device))
+        generator_state_dict = torch.load(
+            state_dict_path, map_location=torch.device(device))
         self.generator = Generator()
         self.generator.load_state_dict(generator_state_dict["G_XtoY"])
         self.transform = transforms.Compose([
@@ -18,19 +20,30 @@ class MakeupRemover():
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         ])
 
-
-    def remove_makeup(self, image):
+    def remove_makeup(self, image, default_size=(96, 96)):
+        image = image.resize(default_size)
         image = self.transform(image)
-        image = image[None,:]
+        image = image[None, :]
         remove_makeup_image = self.generator(image)
         remove_makeup_image = self.deprocess(remove_makeup_image)
         remove_makeup_image = remove_makeup_image[0]
         return remove_makeup_image
-    def denormalize(self,images, std=0.5, mean=0.5):
+
+    def denormalize(self, images, std=0.5, mean=0.5):
+        """_summary_
+
+        Args:
+            images (_type_): standardized image
+            std (float, optional): _description_. Defaults to 0.5.
+            mean (float, optional): _description_. Defaults to 0.5.
+
+        Returns:
+            _type_: original image
+        """
+
         # For plot
         images = (images * std) + mean
         return images
 
-
-    def deprocess(self,input_tensor):
+    def deprocess(self, input_tensor):
         return np.transpose(self.denormalize(input_tensor.detach().cpu().numpy()), (0, 2, 3, 1))
