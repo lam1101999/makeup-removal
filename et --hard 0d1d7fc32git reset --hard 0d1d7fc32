@@ -1,0 +1,90 @@
+[33mcommit a75ad9b4a8c460da6763c8d6f5cfcf310e9df1a0[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Nov 23 14:34:39 2023 +0700
+
+    remove pycache
+
+[33mcommit bab6cfc70dc374ea5eb9fce44133c653237f9e01[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Nov 23 14:31:40 2023 +0700
+
+    fomat output streamlit
+
+[33mcommit d857d6557bdeff45b7bb35adcd57da9e3b5a65bf[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Fri Nov 3 20:23:58 2023 +0700
+
+    fix bug with 4 channels image
+
+[33mcommit 3165328a1cff71746457cbe0d16d6a7fee4cebca[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 19 22:01:35 2023 +0700
+
+    up scale size
+
+[33mcommit 1166424acab4cc56110d560d2aa6befd2395da4f[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 19 11:29:23 2023 +0700
+
+    fix path
+
+[33mcommit d3aebfc7c766269bb94c6e1c4647a7c13e4334e4[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 19 11:24:59 2023 +0700
+
+    gix bug non cuda
+
+[33mcommit 2a86ccffa58b34df8d6e8499623f7ef456b80995[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 19 10:37:14 2023 +0700
+
+    webapp streamlit
+
+[33mcommit ed0cb403ab3ee9b5b4c89c6d063e137e59d0aa25[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Mon Oct 16 18:46:04 2023 +0700
+
+    build gan
+
+[33mcommit aff4edb50049d58e19898fe639cda4c897891f3f[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 12 16:27:14 2023 +0700
+
+    remove dataset folder
+
+[33mcommit cbdadab59d8609bd11ab2cdc49518432a0ef6645[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Thu Oct 12 16:26:14 2023 +0700
+
+    upload GAN
+
+[33mcommit 5fdb774df304d5b15920c8d0a7d295f0d26a2a0e[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Fri Sep 29 14:23:02 2023 +0700
+
+    add gitignore
+
+[33mcommit 84f240e01eb7ef8e7caeb4f6a3ddf2bd2ff64fca[m
+Merge: fe1daf8 1666a26
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Fri Sep 29 14:21:06 2023 +0700
+
+    Merge branch 'master' of https://github.com/lam1101999/makeup-removal
+
+[33mcommit fe1daf81fa3e62d90847c60c36289b918d84da00[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Fri Sep 29 14:18:20 2023 +0700
+
+    add path
+
+[33mcommit 27124ace8ea4edd84385461fef343527de0b94c7[m
+Author: lam1101999 <nguyenvuduclam@gmail.com>
+Date:   Fri Sep 29 14:05:49 2023 +0700
+
+    Initial commit
+
+[33mcommit 1666a266fdc95bf1053438a18b9f2a482ac6ba65[m
+Author: Vũ Đức Lâm Nguyễn <45237050+lam1101999@users.noreply.github.com>
+Date:   Fri Sep 29 14:04:04 2023 +0700
+
+    Initial commit
