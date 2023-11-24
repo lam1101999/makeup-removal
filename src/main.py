@@ -31,7 +31,9 @@ def main():
     @st.cache_data
     def load_model(model_name):
         classifier.choose_model(model_name)
-    model_list = ["resnet34", "mobile_net_v3_large"]
+        st.success(f"load {model_name}")
+        
+    model_list = ["resnet34", "mobilenet_v3_large", "efficientnet_b1","efficientnet_b2","efficientnet_b3"]
     model_name = st.sidebar.selectbox(
         "Model name", model_list)
     load_model(model_name)
@@ -52,19 +54,21 @@ def main():
                 predict_class, proba = classifier.predict(face["image"])
                 if predict_class[0] == 1:
                     info = "makeup detected"
+                    delete_makeup_info = "remove makeup"
                     remove_makeup = makeup_remover.remove_makeup(face["image"])
                     remove_makeup = Image.fromarray(
                         (remove_makeup*255).astype(np.uint8)).resize((face["width"], face["height"]))
                 else:
                     info = "No makeup detected."
+                    delete_makeup_info = "not remove makeup"
                     remove_makeup = face["image"].resize((face["width"], face["height"]))
 
                 # Display result
                 col1, col2, col3 = st.columns(3, gap="medium")
                 col1.text(f"face {index + 1}:")
-                col2.image(face["image"], caption="Original",
+                col2.image(face["image"], caption=info,
                         width=face["image"].width, use_column_width="auto", channels="RGB")
-                col3.image(remove_makeup, caption=info, width=remove_makeup.width, use_column_width="auto",
+                col3.image(remove_makeup, caption=delete_makeup_info, width=remove_makeup.width, use_column_width="auto",
                         channels="RGB")
 
 if __name__ == "__main__":
