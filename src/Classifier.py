@@ -1,10 +1,12 @@
 import torchvision
 import torch
 import os
+import pathlib
 from torchvision import transforms
 class Classifier():
     def __init__(self):
-        self.weight_folder = os.path.join(os.getcwd(), "model_weight")
+        self.weight_folder = os.path.join(pathlib.Path(
+            __file__).parent, "model_weight")
         self.transform = transforms.Compose([
             transforms.Resize((96, 96)),
             transforms.ToTensor(),
@@ -51,13 +53,9 @@ class Classifier():
         self.model.eval()
         with torch.no_grad():
             output = self.model(image)
-            print("____________________")
-            print("Logit",output)
             output = torch.nn.functional.softmax(output, dim=1)
-            print("softmax",output)
             predict_class = torch.argmax(output, dim=1)
             proba = output[:,predict_class].squeeze()
-            print(predict_class, proba)
         return predict_class, proba
     
 if __name__ == "__main__":

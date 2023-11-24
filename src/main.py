@@ -25,7 +25,7 @@ def main():
         "Upload an image", type=["png", "jpg", "jpeg"], accept_multiple_files= True, key=st.session_state["file_uploader_key"])
     if st.sidebar.button('Reset'):
         st.session_state["file_uploader_key"] += 1
-        st.experimental_rerun()
+        st.rerun()
 
     # Sidebar to select model
     @st.cache_data
@@ -57,7 +57,7 @@ def main():
                         (remove_makeup*255).astype(np.uint8)).resize((face["width"], face["height"]))
                 else:
                     info = "No makeup detected."
-                    remove_makeup = face["image"]
+                    remove_makeup = face["image"].resize((face["width"], face["height"]))
 
                 # Display result
                 col1, col2, col3 = st.columns(3, gap="medium")
