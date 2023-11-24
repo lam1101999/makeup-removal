@@ -1,7 +1,5 @@
 src/train/dataset
 src/train/GAN/check*
 __pycache__
-src/train/Classification
-
-!src/train/Classification/Classification.ipynb
-!src/train/Classification/logs
+*.pth
+!src/model_weight/*pth
