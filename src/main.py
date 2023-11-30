@@ -33,7 +33,7 @@ def main():
         classifier.choose_model(model_name)
         st.success(f"load {model_name}")
         
-    model_list = ["resnet34", "mobilenet_v3_large", "efficientnet_b1","efficientnet_b2","efficientnet_b3"]
+    model_list = ["resnet34", "mobilenet_v3_large", "efficientnet_b1"]
     model_name = st.sidebar.selectbox(
         "Model name", model_list)
     load_model(model_name)
