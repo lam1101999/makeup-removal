@@ -10,7 +10,7 @@ This is the project for my AI class, main objective is creating 2 models that ca
 Step 1: Clone project from github  
 Step 2: Install python  
 Step 3: Install library  
-```pip install  -r requirements.txt```
+```pip install  -r requirements.txt```  
 Step 4: Run project
 ```streamlit run src/main.py```
 
