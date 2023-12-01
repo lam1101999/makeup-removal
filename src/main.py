@@ -27,7 +27,7 @@ def main():
         st.session_state["file_uploader_key"] += 1
         st.rerun()
 
-    # Sidebar to select model
+    # Sidebar to select model, trigger everytime model name changes
     @st.cache_data
     def load_model(model_name):
         classifier.choose_model(model_name)
