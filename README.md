@@ -11,8 +11,8 @@ Step 1: Clone project from github
 Step 2: Install python  
 Step 3: Install library  
 ```pip install  -r requirements.txt```  
-Step 4: Run project
-```streamlit run src/main.py```
+Step 4: Run project  
+```streamlit run src/main.py```  
 
 ## How to train model
 At first you need a dataset with format:
