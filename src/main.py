@@ -49,7 +49,7 @@ def main():
             information = f"**Detect {len(faces)} faces:**"
             st.markdown(information)
 
-            for index, face in enumerate(faces):
+            for index, face in enumerate(faces or []):
                 # Remove makeup
                 predict_class, proba = classifier.predict(face["image"])
                 if predict_class[0] == 1:
