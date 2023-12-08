@@ -7,7 +7,6 @@ class FaceDetector():
     def detect_face(self, image, resized=False, size=(96, 96)):
         faces_data = []
         boxes, _ = self.mtcnn.detect(image)
-        if boxes is None
         for box in (boxes or []):
             box = np.clip(box, 0, max(image.height, image.width))
             left, top, right, bottom = box
