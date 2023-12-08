@@ -46,10 +46,11 @@ def main():
             st.markdown("Your input image:")
             st.image(our_image, channels="RGB")
             faces = face_detector.detect_face(our_image)
+            faces = faces if faces is not None else []
             information = f"**Detect {len(faces)} faces:**"
             st.markdown(information)
 
-            for index, face in enumerate(faces or []):
+            for index, face in enumerate(faces):
                 # Remove makeup
                 predict_class, proba = classifier.predict(face["image"])
                 if predict_class[0] == 1:
